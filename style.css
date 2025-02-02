@@ -1,0 +1,59 @@
+:root {
+    --primary-font: 'Roboto', sans-serif;
+    --primary-bg: #f4f4f4;
+    --card-bg: #ffffff;
+    --border-color: #ddd;
+    --button-bg: #2863a7;
+    --button-hover-bg: #214e88;
+}
+body {
+    font-family: var(--primary-font);
+    background-color: var(--primary-bg);
+    text-align: center;
+    padding: 20px;
+}
+.palette-form {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: 700px;
+}
+input[type="color"]{
+    width: 60px;
+
+}
+input, button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+button {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: var(--button-hover-bg);
+}
+#palette-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+.palette-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
