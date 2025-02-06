@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     loadFavorites();
 });
 
+/**
+ * Adds a new color palette to local storage and updates the display.
+ */
 function addPalette() {
     const name = document.getElementById("palette-name").value.trim();
     const color1 = document.getElementById("color-picker-1").value;
@@ -23,14 +26,23 @@ function addPalette() {
     document.getElementById("palette-name").value = "";
 }
 
+/**
+ * Loads all saved palettes from local storage and displays them.
+ */
 function loadPalettes() {
     displayPalettes();
 }
 
+/**
+ * Loads all favorite palettes from local storage and displays them.
+ */
 function loadFavorites() {
     displayFavorites();
 }
 
+/**
+ * Displays all stored palettes in the palette list.
+ */
 function displayPalettes() {
     const paletteList = document.getElementById("palette-list");
     paletteList.innerHTML = "";
@@ -53,6 +65,9 @@ function displayPalettes() {
     });
 }
 
+/**
+ * Displays all favorite palettes in the favorites list.
+ */
 function displayFavorites() {
     const favoritesList = document.getElementById("favorites-list");
     if (!favoritesList) return;
@@ -75,6 +90,9 @@ function displayFavorites() {
     });
 }
 
+/**
+ * Adds a palette to the favorites list.
+ */
 function addToFavorites(id) {
     let palettes = JSON.parse(localStorage.getItem("palettes")) || [];
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -88,12 +106,20 @@ function addToFavorites(id) {
     displayFavorites();
 }
 
+/**
+ * Removes a palette from the favorites list.
+ */
 function removeFromFavorites(id) {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     favorites = favorites.filter(palette => palette.id !== id);
     localStorage.setItem("favorites", JSON.stringify(favorites));
     displayFavorites();
 }
+
+/**
+ * Generates a simple random color palette.
+ * @returns {Array} An array of three random hex color codes.
+ */
 function generateSimplePalette() {
     const randomColor = () => {
         let color = Math.floor(Math.random() * 16777215).toString(16);
@@ -102,6 +128,9 @@ function generateSimplePalette() {
     return [randomColor(), randomColor(), randomColor()];
 }
 
+/**
+ * Generates a random color palette and adds it to the list.
+ */
 function generateRandomPalette() {
     const colors = generateSimplePalette();
     const palette = { 
@@ -114,11 +143,10 @@ function generateRandomPalette() {
     palettes.push(palette);
     localStorage.setItem("palettes", JSON.stringify(palettes));
 
-    displayPalettes(palette); // ✅ This updates the UI immediately
+    displayPalettes();
 }
 
-
-// Make sure the button exists and add event listener
+// Ensure the "Generate Palette" button is functional
 document.addEventListener("DOMContentLoaded", () => {
     const generateButton = document.getElementById("generate-palette");
     if (generateButton) {
@@ -126,6 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+/**
+ * Deletes a palette from both the list and favorites.
+ */
 function deletePalette(id) {
     let palettes = JSON.parse(localStorage.getItem("palettes")) || [];
     palettes = palettes.filter(palette => palette.id !== id);
@@ -134,3 +165,4 @@ function deletePalette(id) {
     removeFromFavorites(id);
     displayPalettes();
 }
+

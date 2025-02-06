@@ -1,29 +1,37 @@
+/* Root variables for consistent theming */
 :root {
-    --primary-font: "Smooch Sans", serif;
-    --primary-bg: #f4f4f4;
-    --card-bg: #ffffff;
-    --border-color: #ddd;
-    --button-bg: #2863a7;
-    --button-hover-bg: #214e88;
+    --primary-font: "Smooch Sans", serif; /* Primary font for the website */
+    --primary-bg: #f4f4f4; /* Background color for the page */
+    --card-bg: #ffffff; /* Background color for elements like forms and cards */
+    --border-color: #ddd; /* Default border color */
+    --button-bg: #2863a7; /* Primary button background color */
+    --button-hover-bg: #214e88; /* Button hover state color */
 }
+
+/* General styles for the body */
 body {
     font-family: var(--primary-font);
     background-color: var(--primary-bg);
     text-align: center;
     padding: 20px;
 }
+
+/* Styling for the palette input form */
 .palette-form {
     background: var(--card-bg);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
     display: inline-block;
     width: 700px;
 }
-input[type="color"]{
-    width: 60px;
 
+/* Custom styles for color picker inputs */
+input[type="color"] {
+    width: 60px;
 }
+
+/* General input and button styling */
 input, button {
     display: block;
     width: 80%;
@@ -32,21 +40,29 @@ input, button {
     border: 1px solid var(--border-color);
     border-radius: 5px;
 }
+
+/* Button styling */
 button {
     background-color: var(--button-bg);
     color: white;
     border: none;
     cursor: pointer;
 }
+
+/* Button hover effect */
 button:hover {
     background-color: var(--button-hover-bg);
 }
+
+/* Container for displaying palettes */
 #palette-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
 }
+
+/* Styling for each individual palette item */
 .palette-item {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
