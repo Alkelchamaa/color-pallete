@@ -29,6 +29,7 @@ body {
 /* Custom styles for color picker inputs */
 input[type="color"] {
     width: 60px;
+    height: 50px;
 }
 
 /* General input and button styling */
